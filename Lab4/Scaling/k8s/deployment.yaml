@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: elixir-backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: elixir
+  template:
+    metadata:
+      labels:
+        app: elixir
+    spec:
+      containers:
+        - name: elixir
+          image: your_dockerhub/elixir-backend
+          ports:
+            - containerPort: 80
